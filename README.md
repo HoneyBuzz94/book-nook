@@ -16,3 +16,9 @@ Review
 */5 stars
 
 npm Passport for authentication 
+
+
+routes - Sam
+db/models - Nicki
+views - James
+config/server.js - Dillon
