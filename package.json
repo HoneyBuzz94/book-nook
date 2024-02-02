@@ -13,8 +13,8 @@
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
-    "handlebars": "^4.7.8",
     "mysql2": "^3.9.1",
     "passport": "^0.7.0",
     "sequelize": "^6.35.2"
