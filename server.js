@@ -5,14 +5,13 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
 const flash = require('express-flash');
+const methodOverride = require('method-override');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-// Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({});
 
 const sess = {
@@ -41,8 +40,9 @@ app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.authenticate('session'));
+app.use(methodOverride('_method'));
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
 });

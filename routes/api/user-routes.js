@@ -1,8 +1,6 @@
-// Import express router and models
 const router = require("express").Router();
 const { User, Book } = require("../../models");
 
-// Import and use passport
 const passport = require("passport");
 const initializePassport = require("../../passport-config");
 initializePassport(
@@ -11,7 +9,6 @@ initializePassport(
   (id) => User.findByPk(id)
 );
 
-// Get request for all user data. Request should be left blank.
 router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll({
@@ -28,50 +25,50 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Post request for creating new user. Request should look like:
-// {
-//   "username": "newuser",
-//   "email": "user@email.com",
-//   "password": "12345678"
-// }
+// Create new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
-      res.status(200).json(userData);
+      res.redirect("/");
     });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// Post request for logging in. Request should look like:
-// {
-// 	"username": "newuser",
-// 	"password": "12345678"
-// }
+// Login
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/api/users/update-session",
     failureRedirect: "/login",
     failureFlash: true,
-    badRequestMessage: "",
   })
 );
 
-// Post request for logging user out. Request should be left blank.
+router.get("/update-session", (req, res) => {
+  req.session.save(() => {
+    req.session.user_id = req.user.id;
+    req.session.username = req.user.username;
+    console.log(req.session.username);
+    req.session.logged_in = true;
+    console.log(req.session.logged_in);
+    res.redirect("/");
+  });
+});
+
+// Logout
 router.post("/logout", async (req, res) => {
-  // If the user's session status is set to logged_in, destroy the current session and return a status code
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
-    // If the user is not logged in, return a status code
     res.status(404).end();
   }
 });
