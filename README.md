@@ -15,6 +15,10 @@ Review
 ---Use package 'moment' for time stamp of reviews and comments?
 */5 stars
 
+homepage
+login/register
+book post page
+
 npm Passport for authentication 
 
 
