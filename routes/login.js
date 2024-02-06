@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('login');
+    console.log(req.flash('error'));
+    res.render('login', {message: req.flash('error')});
 })
 
 module.exports = router;

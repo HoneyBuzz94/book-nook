@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h2>Login page</h2>
+    {{#if message}}
+      {{message}}
+    {{/if}}
+    <form id="login_data" action="/api/users/login" method="POST">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" />
+      <h2>Password</h2>
+      <input id="password" type="password" name="password" />
+      <button class="submit">Login</button>
+    </form>
+    <h1>register</h1>
+    <form id="register_data" action="/api/users" method="POST">
+      <h2>Email</h2>
+      <input id="email" type="email" name="email" />
+      <h2>Username</h2>
+      <input id="username" type="text" name="username" />
+      <h2>Password</h2>
+      <input id="password" type="password" name="password" />
+      <button class="submit">Submit</button>
+    </form>
+  </body>
+</html>
