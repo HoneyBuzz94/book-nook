@@ -60,11 +60,11 @@ router.post("/", async (req, res) => {
 // 	"username": "newuser",
 // 	"password": "12345678"
 // }
-router.post('/login', 
-  passport.authenticate('local', { failureMessage: true }),
-  function(req, res) {
-    res.status(200).json({ message: 'Success' });
-});
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
 
 // Post request for logging user out. Request should be left blank.
 router.post("/logout", async (req, res) => {
