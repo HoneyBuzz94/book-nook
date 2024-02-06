@@ -51,15 +51,19 @@ router.post(
   })
 );
 
-router.get("/update-session", (req, res) => {
-  req.session.save(() => {
-    req.session.user_id = req.user.id;
-    req.session.username = req.user.username;
-    console.log(req.session.username);
-    req.session.logged_in = true;
-    console.log(req.session.logged_in);
-    res.redirect("/");
-  });
+router.get("/update-session", async (req, res) => {
+  try{
+    req.session.save(() => {
+      req.session.user_id = req.user.id;
+      req.session.username = req.user.username;
+      console.log(req.session.username);
+      req.session.logged_in = true;
+      console.log(req.session.logged_in);
+      res.redirect("/");
+    });
+  }catch(err){
+    res.status(400).json(err);
+  }
 });
 
 // Logout
