@@ -1,10 +1,10 @@
-const passport = require('passport');
+// const passport = require('passport');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
-const flash = require('express-flash');
+// const flash = require('express-flash');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -35,12 +35,12 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(flash());
+// app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.initialize());
-app.use(passport.authenticate('session'));
+// app.use(passport.initialize());
+// app.use(passport.authenticate('session'));
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
 });
