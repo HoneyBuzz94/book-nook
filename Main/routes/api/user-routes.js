@@ -2,6 +2,16 @@
 const router = require("express").Router();
 const { User, Book } = require("../../models");
 
+// Import and use passport
+const passport = require('passport');
+const initializePassport = require('../../passport-config');
+
+initializePassport(
+    passport,
+    username => User.findOne({ where: { username:username } }),
+    id => User.findByPk({ id })
+);
+
 // Get request for all user data. Request should be left blank.
 router.get("/", async (req, res) => {
   try {
@@ -44,39 +54,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+
 // Post request for logging in. Request should look like:
 // {
 // 	"username": "newuser",
 // 	"password": "12345678"
 // }
-router.post("/login", async (req, res) => {
-  try {
-    // Find user in the database using their username
-    const userData = await User.findOne({
-      where: { username: req.body.username },
-    });
-    // If user is not found, return status code with json message
-    if (!userData) {
-      res.status(400).json({ message: "Incorrect username or password" });
-      return;
-    }
-    // Compare the user password with the user in the database
-    const validPassword = await userData.checkPassword(req.body.password);
-    // If password does not match, return status code with json message
-    if (!validPassword) {
-      res.status(400).json({ message: "Incorrect username or password" });
-      return;
-    }
-    // Save the user data to the session and set their status as logged in
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      res.status(200).json({ message: `Welcome ${userData.username}` });
-    });
-  } catch (err) {
-    // Return status code to the user
-    res.status(400).json(err);
-  }
+router.post('/login', 
+  passport.authenticate('local', { failureMessage: true }),
+  function(req, res) {
+    res.status(200).json({ message: 'Success' });
 });
 
 // Post request for logging user out. Request should be left blank.
