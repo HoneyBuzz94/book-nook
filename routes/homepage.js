@@ -14,6 +14,7 @@ router.get("/", withAuth, async (req, res) => {
   try {
     const bookData = await Book.findAll({
       where: { user_id: req.session.user_id },
+      order: [['title', 'ASC']],
     });
 
     const books = bookData.map((project) => project.get({ plain: true }));
