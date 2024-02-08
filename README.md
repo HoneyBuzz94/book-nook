@@ -26,3 +26,5 @@ routes - Sam
 db/models - Nicki
 views - James
 config/server.js - Dillon
+
+Used https://www.geeksforgeeks.org/star-rating-using-html-css-and-javascript/ for code to create responsive rating system
