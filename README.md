@@ -27,4 +27,4 @@ db/models - Nicki
 views - James
 config/server.js - Dillon
 
-Used https://www.geeksforgeeks.org/star-rating-using-html-css-and-javascript/ for code to create responsive rating system
+Used https://stackoverflow.com/questions/49218516/creating-simple-star-rating-using-click-event-javascript for help with code to create responsive rating system

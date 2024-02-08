@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/style.css">
 <h2 class="text-info display-4">Journal</h2>
 <div class=" d-flex flex-column mb-2">
   <form action="/api/books" method="POST">
@@ -13,23 +14,23 @@
       <label for="synopsis">Synopsis</label>
       <input id="synopsis" class="p-3" type="text" name="synopsis" required />
     </div>
-     <div class="rating-box">
-      <header>How was your experience?</header>
-      <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+    <p class="mb-0">Rating</p>
+    <div id="my-rating" class="rating-box">
+      <div id='rating' class="mb-2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    {{!-- Hidden inputs --}}
-    <div>
-      <input id="user_id" type="hidden" name="user_id" value={{userId}} />
-      <input id="time_stamp" type="hidden" name="time_stamp" value={{timeStamp}} />
-    </div>
-    <div>
-      <button type="submit" class="btn btn-outline-secondary ">Submit</button>
-    </div>
+      {{!-- Hidden inputs --}}
+      <div>
+        <input id="user_id" type="hidden" name="user_id" value={{userId}} />
+        <input id="time_stamp" type="hidden" name="time_stamp" value={{timeStamp}} />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-outline-secondary ">Submit</button>
+      </div>
   </form>
 </div>
-<script src="/js/script.js"></script>
+<script src="/js/journal.js"></script>
