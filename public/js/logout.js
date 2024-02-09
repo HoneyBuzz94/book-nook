@@ -11,6 +11,7 @@ const logout = async () => {
   }
 };
 
+document.querySelector("#logout").addEventListener("click", logout);
 
 document.querySelector('#deleteBTN').classList.add(
     'fas',
@@ -59,6 +60,4 @@ async function deleteNote(id) {
     }
 }
 
-
-document.querySelector("#logout").addEventListener("click", logout);
 // document.querySelector('#deleteBTN').addEventListener('click', handleNoteDelete);
