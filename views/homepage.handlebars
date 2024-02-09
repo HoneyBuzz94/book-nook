@@ -8,11 +8,10 @@
   </div>
   {{#each books as |book|}}
   <div class="row align-center mb-5">
-
     <div class="mx-auto">
       <h2 class="text-info display-6">Book Title</h2>
       <p class="">Input Date: {{book.time_stamp}}</p>
-      <p><strong>{{book.title}} by {{book.author}}</strong></p>
+      <p class="text-wrap" style="width: 10rem;"><strong>{{book.title}} by {{book.author}}</strong></p>
     </div>
     <div class="col-md-6 mx-auto">
       <h2 class="text-info display-6">Synopsis</h2>
