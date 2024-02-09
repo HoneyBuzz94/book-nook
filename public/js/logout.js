@@ -11,15 +11,6 @@ const logout = async () => {
   }
 };
 
-
-document.querySelector('#deleteBTN').classList.add(
-    'fas',
-    'fa-trash-alt',
-    'float-right',
-    'text-danger',
-    'delete-book'
-);
-
 // liEl.append(deleteBTN);
 
 // Delete the clicked note
