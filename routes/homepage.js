@@ -10,7 +10,7 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const books = bookData.map((project) => project.get({ plain: true }));
-
+console.log(books)
     res.render("homepage", {
       books,
       username: req.session.username,
