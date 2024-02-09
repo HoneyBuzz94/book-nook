@@ -3,3 +3,4 @@
 #rating span::before { content: "🤍"; }
 #rating span.active::before {content: "❤️"; }
 #rating span:hover { cursor: pointer; }
+

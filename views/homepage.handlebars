@@ -1,19 +1,29 @@
 <body>
-  <h1>{{username}}'s Nook</h1>
-  <button type="button" id="logout" class="btn btn-outline-secondary">Logout</button>
-  <a class="btn btn-primary" href="/journal" role="button">Create new entry</a>
+  <h1 class="text-info display-4 mb-4">{{username}}'s Nook</h1>
+  <div class="col-6 mx-auto">
+    <a class="btn btn-outline-info mb-2" href="/journal" role="button">Create new entry</a>
+  </div>
+  <div class="col-6 mx-auto mb-5">
+    <button type="button" id="logout" class="btn btn-outline-secondary" style="">Logout</button>
+  </div>
   {{#each books as |book|}}
-    <div class="row align-center mb-5">
-      <div class="col-md-6">
-        <h2>{{book.title}} by {{book.author}}</h2>
-        <p>{{book.time_stamp}}</p>
-      </div>
-      <div class="col-md-6">
-        <p>{{book.synopsis}}</p>
-        <p>{{book.review}}</p>
-      </div>
+  <div class="row align-center mb-5">
+
+    <div class="mx-auto">
+      <h2 class="text-info display-6">Book Title</h2>
+      <p class="">Input Date: {{book.time_stamp}}</p>
+      <p><strong>{{book.title}} by {{book.author}}</strong></p>
     </div>
-    <button id="deleteBTN" type="button" data-id={{book.id}}  onclick="handleNoteDelete(event)" class="btn-delete">delete</button>
+    <div class="col-md-6 mx-auto">
+      <h2 class="text-info display-6">Synopsis</h2>
+      <p>{{book.synopsis}}</p>
+      <p>{{book.review}}</p>
+    </div>
+  </div>
+  <div class="col-6 mx-auto">
+    <button class="btn btn-outline-secondary" id="deleteBTN" type="button" data-id={{book.id}}
+      onclick="handleNoteDelete(event)" class="btn-delete">Delete</button>
+  </div>
   {{/each}}
 
 </body>
