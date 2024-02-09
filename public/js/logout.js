@@ -11,20 +11,7 @@ const logout = async () => {
   }
 };
 
-<<<<<<< HEAD
-=======
 document.querySelector("#logout").addEventListener("click", logout);
-
-document.querySelector('#deleteBTN').classList.add(
-    'fas',
-    'fa-trash-alt',
-    'float-right',
-    'text-danger',
-    'delete-book'
-);
-
->>>>>>> c5c2cc26ce11c4db663f6b571c8f83526fb7b913
-// liEl.append(deleteBTN);
 
 // Delete the clicked note
 function handleNoteDelete(e) {
@@ -62,5 +49,3 @@ async function deleteNote(id) {
         console.error('Error deleting note:', error);
     }
 }
-
-// document.querySelector('#deleteBTN').addEventListener('click', handleNoteDelete);
