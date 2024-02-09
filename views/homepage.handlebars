@@ -1,7 +1,7 @@
 <body>
   <h1>{{username}}'s Nook</h1>
-  <button class="btn" id="logout">Logout</button>
-  <a href="/journal"><button>Create a new entry</button></a>
+  <button type="button" id="logout" class="btn btn-outline-secondary">Logout</button>
+  <a class="btn btn-primary" href="/journal" role="button">Create new entry</a>
   {{#each books as |book|}}
     <div class="row align-center mb-5">
       <div class="col-md-6">
@@ -17,3 +17,4 @@
 
 </body>
 
+<script src="/js/logout.js"></script>
