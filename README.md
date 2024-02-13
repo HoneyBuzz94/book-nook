@@ -1,7 +1,7 @@
 # Book Nook
-PUT IMAGE HERE
 
-![BOOK NOOK](/assets/VideoDemo)
+[Untitled_ Feb 12, 2024 6_20 PM.webm](https://github.com/HoneyBuzz94/book-nook/assets/147219229/986d42a2-a9de-4c36-95bb-44dca9e844e4)
+
 ## Description
   This is Project 2 of 3 in the course of our bootcamp. Book Nook is a book journaling app. Users can document their reading history using a simple and intuitive interface.This project was motivated by a love of books! As an avid reader who consumes piles of books, it can be easy to forget stories or keep plot lines straight. This app provides a central place to log information about all of the books that you've read.
 
